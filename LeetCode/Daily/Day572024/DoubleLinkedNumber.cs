@@ -4,6 +4,28 @@ namespace LeetCode.Daily.Day572024
 {
     public class DoubleLinkedNumber
     {
+
+        /// <summary>
+        /// how it must be
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        //public ListNode DoubleIt(ListNode head)
+        //{
+        //    ListNode first = new ListNode(0, head), prev = first;
+        //    while (head != null)
+        //    {
+        //        int d = head.val * 2;
+        //        if (d >= 10) prev.val++;
+        //        head.val = d % 10;
+        //        prev = head;
+        //        head = head.next;
+        //    }
+        //    return first.val > 0 ? first : first.next;
+        //}
+
+
+
         public ListNode DoubleIt(ListNode head)
         {
             int acc = 0;

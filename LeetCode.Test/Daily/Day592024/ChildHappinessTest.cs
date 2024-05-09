@@ -1,4 +1,7 @@
-﻿namespace LeetCode.Test.Daily.Day592024
+﻿using LeetCode.Daily.Day592024;
+using System.Collections;
+
+namespace LeetCode.Test.Daily.Day592024
 {
     public class ChildHappinessTest
     {
@@ -15,9 +18,9 @@
         }
         [Test]
         [TestCaseSource(nameof(TestCases))]
-        public void TestRanked(int[] array, int k, int actualResult)
+        public void TestRanked(int[] array, int k, int expectedResult)
         {
-            Assert.AreEqual(new ChildHappiness().(array), expectedArray);
+            Assert.AreEqual(new ChildHappiness().MaximumHappinessSum(array, k), expectedResult);
         }
     }
 }

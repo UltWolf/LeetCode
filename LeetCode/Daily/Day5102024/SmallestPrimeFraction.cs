@@ -13,7 +13,7 @@
                     resultDict.TryAdd((double)arr[i] / arr[j], new int[] { arr[i], arr[j] });
                 }
             }
-            return resultDict.OrderBy(f => f.Key)..ToArray()[k - 1].Value;
+            return resultDict.OrderBy(f => f.Key).ToArray()[k - 1].Value;
         }
         //best performance 
         //public int[] getFractionsLessThanMid(int[] arr, int k, int n, double mid)

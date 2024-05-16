@@ -5,13 +5,14 @@
         public int NumIdenticalPairs(int[] nums)
         {
             var count = 0;
-            for (var i = 0; i < nums.Length; i++)
+            var arrayLength = nums.Length;
+            for (var i = 0; i < arrayLength; i++)
             {
-                for (var j = i + 1; j < nums.Length; j++)
+                for (var j = i + 1; j < arrayLength; j++)
                 {
                     if (nums[i] == nums[j])
                     {
-                        count += 1;
+                        count++;
                     }
                 }
             }

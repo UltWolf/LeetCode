@@ -16,5 +16,17 @@
 
             return withElement + withoutElement;
         }
+
+        //the best variant, but not mine
+        //public int SubsetXORSum(int[] nums)
+        //{
+        //    int result = 0;
+
+        //    for (var i = 0; i < nums.Length; i++)
+        //    {
+        //        result |= nums[i];
+        //    }
+        //    return result << (nums.Length - 1);
+        //}
     }
 }

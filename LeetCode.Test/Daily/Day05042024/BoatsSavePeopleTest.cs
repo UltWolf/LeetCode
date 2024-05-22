@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day542024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day542024
+namespace LeetCode.Test.Daily.Day05042024
 {
     public class BoatsSavePeopleTest
     {

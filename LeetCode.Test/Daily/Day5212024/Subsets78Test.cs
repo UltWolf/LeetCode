@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day5212024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day5212024
+namespace LeetCode.Test.Daily.Day05212024
 {
     public class Subsets78Test
     {

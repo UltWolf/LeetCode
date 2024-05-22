@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace LeetCode.Test.Daily
 {
-    public class Day5172024
+    public class Day05172024
     {
         private static IEnumerable TestCases
         {

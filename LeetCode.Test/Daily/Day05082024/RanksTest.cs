@@ -1,7 +1,8 @@
-﻿using LeetCode.Daily.Day582024;
+﻿
+using LeetCode.Daily.Day582024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day582024
+namespace LeetCode.Test.Daily.Day05082024
 {
     public class RanksTest
     {

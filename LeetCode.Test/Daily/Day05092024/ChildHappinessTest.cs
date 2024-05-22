@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day592024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day592024
+namespace LeetCode.Test.Daily.Day05092024
 {
     public class ChildHappinessTest
     {

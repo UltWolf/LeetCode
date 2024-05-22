@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day5152024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day5152024
+namespace LeetCode.Test.Daily.Day05152024
 {
     public class MaximumSafenessFactorTest
     {

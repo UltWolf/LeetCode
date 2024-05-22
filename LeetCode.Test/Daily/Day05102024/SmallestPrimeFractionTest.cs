@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day5102024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day5102024
+namespace LeetCode.Test.Daily.Day05102024
 {
     public class SmallestPrimeFractionTest
     {

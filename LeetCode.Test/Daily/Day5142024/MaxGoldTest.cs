@@ -1,7 +1,7 @@
 ﻿using LeetCode.Daily.Day5142024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day5142024
+namespace LeetCode.Test.Daily.Day05142024
 {
     public class MaxGoldTest
     {

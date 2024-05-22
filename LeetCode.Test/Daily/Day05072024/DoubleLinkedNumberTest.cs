@@ -2,7 +2,7 @@
 using LeetCode.Daily.Day572024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day572024
+namespace LeetCode.Test.Daily.Day05072024
 {
     public class DoubleLinkedNumberTest
     {

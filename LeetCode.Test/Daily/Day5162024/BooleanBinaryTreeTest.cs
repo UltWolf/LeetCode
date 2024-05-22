@@ -2,7 +2,7 @@
 using LeetCode.Daily.Day5162024;
 using System.Collections;
 
-namespace LeetCode.Test.Daily.Day5162024
+namespace LeetCode.Test.Daily.Day05162024
 {
     public class BooleanBinaryTreeTest
     {

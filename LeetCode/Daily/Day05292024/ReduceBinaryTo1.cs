@@ -1,7 +1,7 @@
 ﻿namespace LeetCode.Daily.Day05292024
 {
     public class ReduceBinaryTo1
-    { //var number = Convert.ToInt32(s, 2);
+    { //var number = Convert.ToInt64(s, 2);
       //var result = 0;
       //while (number > 1)
       //{

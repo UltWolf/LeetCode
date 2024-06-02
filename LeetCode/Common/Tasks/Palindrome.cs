@@ -49,7 +49,6 @@
                 {
                     lastIndex--;
                 }
-                var isLetter =
                 while (i < s.Length - 1 && !Char.IsLetter(s[i]))
                 {
                     i++;

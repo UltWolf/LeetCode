@@ -76,5 +76,33 @@ namespace LeetCode.Test.Common
         {
             Assert.AreEqual(expectedResult, new Someeasy().CanConstruct(ransomNote, magazine));
         }
+
+        //        Input: s = "III"
+        //Output: 3
+        //Explanation: III = 3.
+        //Example 2:
+
+        //Input: s = "LVIII"
+        //Output: 58
+        //Explanation: L = 50, V= 5, III = 3.
+        //Example 3:
+
+        //Input: s = "MCMXCIV"
+        //Output: 1994
+        private static IEnumerable TestCasesRoman
+        {
+            get
+            {
+                yield return new TestCaseData("III").Returns(3);
+                yield return new TestCaseData("LVIII").Returns(58);
+                yield return new TestCaseData("MCMXCIV").Returns(1994);
+            }
+        }
+        [Test]
+        [TestCaseSource(nameof(TestCasesRoman))]
+        public int TestRoman(string romanString)
+        {
+            return new RomanToIntegers().RomanToInt(romanString);
+        }
     }
 }

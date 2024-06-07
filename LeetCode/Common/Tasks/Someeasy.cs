@@ -92,6 +92,54 @@ namespace LeetCode.Common.Tasks
         //    }
         //    return curr;
         //}
+        //        Input: l1 = [2,4,3], l2 = [5,6,4]
+        //        Output: [7,0,8]
+        //        Explanation: 342 + 465 = 807.
+        //Example 2:
+
+        //Input: l1 = [0], l2 = [0]
+        //        Output: [0]
+        //        Example 3:
+
+        //Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+        //        Output: [8,9,9,9,0,0,0,1]
+        public ListNode SumOfListNode(ListNode node, ListNode node2)
+        {
+            List<int> nodeC = new List<int>();
+            while (node != null)
+            {
+                nodeC.Add(node.val);
+                node = node.next;
+            }
+
+            List<int> node2C = new List<int>();
+            while (node2 != null)
+            {
+                node2C.Add(node2.val);
+                node2 = node2.next;
+            }
+
+
+            int extra = 0;
+            ListNode prev = null;
+            for (var i = nodeC.Count - 1; i >= 0; i--)
+            {
+                var listNode = new ListNode();
+                if (prev != null)
+                {
+                    listNode.next = prev;
+                }
+                listNode.val = nodeC[i] + node2C[i] + extra;
+                extra = 0;
+                if (listNode.val > 9)
+                {
+                    listNode.val -= 10;
+                    extra = 1;
+                }
+                prev = listNode;
+            }
+            return prev;
+        }
         public ListNode MiddleNode(ListNode head)
         {
             var curr = head;

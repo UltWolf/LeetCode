@@ -104,5 +104,52 @@ namespace LeetCode.Test.Common
         {
             return new RomanToIntegers().RomanToInt(romanString);
         }
+        //        Input: l1 = [2,4,3], l2 = [5,6,4]
+        //        Output: [7,0,8]
+        //        Explanation: 342 + 465 = 807.
+        //Example 2:
+
+        //Input: l1 = [0], l2 = [0]
+        //        Output: [0]
+        //        Example 3:
+
+        //Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+        //        Output: [8,9,9,9,0,0,0,1]
+        private static IEnumerable TestCasesSumNodes
+        {
+            get
+            {
+
+
+                yield return new TestCaseData(new ListNode(2, new ListNode(4, new ListNode(3))), new ListNode(5, new ListNode(6, new ListNode(4)))).Returns(new ListNode(7, new ListNode(0, new ListNode(8))));
+                yield return new TestCaseData(new ListNode(0), new ListNode(0)).Returns(new ListNode(0));
+                yield return new TestCaseData(new ListNode(9,
+                                  new ListNode(9,
+                                    new ListNode(9,
+                                      new ListNode(9,
+                                        new ListNode(9,
+                                          new ListNode(9,
+                                            new ListNode(9))))))),
+                                            new ListNode(9,
+                                  new ListNode(9,
+                                    new ListNode(9,
+                                      new ListNode(9))))
+                                            ).Returns(new ListNode(8,
+                    new ListNode(9,
+                      new ListNode(9,
+                        new ListNode(9,
+                          new ListNode(0,
+                            new ListNode(0,
+                              new ListNode(0,
+                                new ListNode(1)))))))));
+
+            }
+        }
+        [Test]
+        [TestCaseSource(nameof(TestCasesSumNodes))]
+        public ListNode TestSum(ListNode l1, ListNode l2)
+        {
+            return new Someeasy().SumOfListNode(l1, l2);
+        }
     }
 }

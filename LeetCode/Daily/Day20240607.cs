@@ -22,90 +22,158 @@ namespace LeetCode.Daily
     //Output: "a a b c"
     public class Day20240607
     {
-        public string ReplaceWords(IList<string> dictionary, string sentence)
+        public class TrieNode
         {
-            dictionary = dictionary.OrderBy(x => x).ToList();
-            StringBuilder stringBuilder = new StringBuilder();
-            for (var i = 0; i < sentence.Length;)
+            public Dictionary<char, TrieNode> children = new Dictionary<char, TrieNode>();
+            public string word = null;
+        }
+        public class Trie
+        {
+            private TrieNode root;
+
+            public Trie()
             {
-                var endOfTheWord = sentence.IndexOf(" ", i);
-                if (endOfTheWord == -1)
+                root = new TrieNode();
+            }
+
+            public void Insert(string word)
+            {
+                TrieNode node = root;
+                foreach (char c in word)
                 {
-                    endOfTheWord = sentence.Length;
-                }
-                var replaced = "";
-                for (var j = 0; j < dictionary.Count; j++)
-                {
-                    var b = i;
-                    var isFind = true;
-                    for (var k = 0; k < dictionary[j].Length && b < endOfTheWord; k++)
+                    if (!node.children.ContainsKey(c))
                     {
-                        if (sentence[b] != dictionary[j][k])
-                        {
-                            isFind = false;
-                            break;
-                        }
-                        b++;
-                        if (b >= endOfTheWord)
-                        {
-                            isFind = false;
-                            break;
-                        }
+                        node.children[c] = new TrieNode();
                     }
-                    if (isFind)
+                    node = node.children[c];
+                }
+                node.word = word;
+            }
+
+            public string SearchPrefix(string word)
+            {
+                TrieNode node = root;
+                foreach (char c in word)
+                {
+                    if (!node.children.ContainsKey(c))
                     {
-                        replaced = dictionary[j];
                         break;
                     }
-                }
-                if (replaced == "")
-                {
-                    var length = 0;
-                    if (endOfTheWord == -1)
+                    node = node.children[c];
+                    if (node.word != null)
                     {
-                        length = sentence.Length - i;
+                        return node.word;
                     }
-                    else
-                    {
-                        length = endOfTheWord - i;
-                    }
-                    stringBuilder.Append(" " + sentence.Substring(i, length));
                 }
-                else
-                {
-                    stringBuilder.Append(" " + replaced);
-                }
-                i = endOfTheWord + 1;
+                return word;
             }
-            return stringBuilder.ToString().Trim();
-
-
-            //var charArray = sentence.ToCharArray();
-            //for (var i = 0; i < sentence.Length; i++)
-            //{
-            //    while (i < sentence.Length && (String.IsNullOrEmpty(sentence[i].ToString())))
-            //    {
-            //        i++;
-            //    }
-            //    var replaced = "";
-            //    for (var j = 0; j < dictionary.Count; j++)
-            //    {
-            //        var b = i;
-            //        for (var k = 0; k < dictionary.Count; k++)
-            //        {
-            //            if (sentence[b] == dictionary[j][k])
-            //            {
-            //                break;
-            //            }
-            //        }
-            //    }
-            //    if (replaced != "")
-            //    {
-
-            //    }
-            //}
-            //return new string(charArray);
-
         }
+        public string ReplaceWords(IList<string> dictionary, string sentence)
+        {
+            Trie trie = new Trie();
+            foreach (string root in dictionary)
+            {
+                trie.Insert(root);
+            }
+
+            string[] words = sentence.Split(' ');
+            StringBuilder result = new StringBuilder();
+
+            foreach (string word in words)
+            {
+                if (result.Length > 0)
+                {
+                    result.Append(" ");
+                }
+                result.Append(trie.SearchPrefix(word));
+            }
+            return result.ToString();
+        }
+        //public string ReplaceWords(IList<string> dictionary, string sentence)
+        //{
+
+        //    dictionary = dictionary.OrderBy(x => x).ToList();
+        //    StringBuilder stringBuilder = new StringBuilder();
+        //    for (var i = 0; i < sentence.Length;)
+        //    {
+        //        var endOfTheWord = sentence.IndexOf(" ", i);
+        //        if (endOfTheWord == -1)
+        //        {
+        //            endOfTheWord = sentence.Length;
+        //        }
+        //        var replaced = "";
+        //        for (var j = 0; j < dictionary.Count; j++)
+        //        {
+        //            var b = i;
+        //            var isFind = true;
+        //            for (var k = 0; k < dictionary[j].Length && b < endOfTheWord; k++)
+        //            {
+        //                if (sentence[b] != dictionary[j][k])
+        //                {
+        //                    isFind = false;
+        //                    break;
+        //                }
+        //                b++;
+        //                if (b >= endOfTheWord)
+        //                {
+        //                    isFind = false;
+        //                    break;
+        //                }
+        //            }
+        //            if (isFind)
+        //            {
+        //                replaced = dictionary[j];
+        //                break;
+        //            }
+        //        }
+        //        if (replaced == "")
+        //        {
+        //            var length = 0;
+        //            if (endOfTheWord == -1)
+        //            {
+        //                length = sentence.Length - i;
+        //            }
+        //            else
+        //            {
+        //                length = endOfTheWord - i;
+        //            }
+        //            stringBuilder.Append(" " + sentence.Substring(i, length));
+        //        }
+        //        else
+        //        {
+        //            stringBuilder.Append(" " + replaced);
+        //        }
+        //        i = endOfTheWord + 1;
+        //    }
+        //    return stringBuilder.ToString().Trim();
+
+
+        //    //var charArray = sentence.ToCharArray();
+        //    //for (var i = 0; i < sentence.Length; i++)
+        //    //{
+        //    //    while (i < sentence.Length && (String.IsNullOrEmpty(sentence[i].ToString())))
+        //    //    {
+        //    //        i++;
+        //    //    }
+        //    //    var replaced = "";
+        //    //    for (var j = 0; j < dictionary.Count; j++)
+        //    //    {
+        //    //        var b = i;
+        //    //        for (var k = 0; k < dictionary.Count; k++)
+        //    //        {
+        //    //            if (sentence[b] == dictionary[j][k])
+        //    //            {
+        //    //                break;
+        //    //            }
+        //    //        }
+        //    //    }
+        //    //    if (replaced != "")
+        //    //    {
+
+        //    //    }
+        //    //}
+        //    //return new string(charArray);
+
+        //}
     }
 }
